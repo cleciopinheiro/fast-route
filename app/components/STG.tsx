@@ -3,7 +3,7 @@ import Image from "next/image";
 function STG() {
     return (
         <div className="relative bg-[#1d1d1d] h-[90vh] w-screen flex flex-col px-4">
-            <Image src="/image.png" width={240} height={240} alt="Image" className="self-center mt-4" />
+            <Image src="/image.png" width={240} height={240} alt="Image" className="self-center mt-4 w-auto h-auto" />
             <h1 className="text-white text-2xl font-semibold mt-4">Proceed to pickup</h1>
             <hr className="mt-2" />
             <p className="flex gap-16 mt-2">Staging area <span>STG.</span></p>

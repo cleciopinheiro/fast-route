@@ -8,6 +8,12 @@
   --background-end-rgb: 255, 255, 255;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -30,4 +36,12 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.inactive {
+  @apply px-4 flex justify-center items-center w-full text-[12px];
+}
+
+.active {
+  @apply px-4 flex justify-center items-center border-b-2 border-white w-full;
 }
