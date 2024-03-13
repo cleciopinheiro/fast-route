@@ -38,10 +38,6 @@ body {
   }
 }
 
-.inactive {
-  @apply px-4 flex justify-center items-center w-full text-[12px];
-}
-
 .active {
-  @apply px-4 flex justify-center items-center border-b-2 border-white w-full;
+  @apply border-b-2 border-white w-full;
 }
