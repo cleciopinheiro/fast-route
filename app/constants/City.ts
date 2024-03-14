@@ -37,8 +37,9 @@ const city = [
   { name: 'Upper Marlboro', id: 36 },
   { name: 'Vienna', id: 37 },
   { name: 'Woodbridge', id: 38 },
-  { name: 'Washington', id: 39 }, // Saida de Elkridge
-  { name: 'Annapolis', id: 40 },
+  { name: 'Washington', id: 39 },
+  
+  { name: 'Annapolis', id: 40 }, // Saida de Elkridge
   { name: 'Baltimore', id: 41 },
   { name: 'Beltsville', id: 42 },
   { name: 'Catonsville', id: 43 },
