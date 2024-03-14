@@ -11,7 +11,7 @@ function ListSection({ id }: ListSectionProps) {
 
     return (
         <div id={id} className="flex flex-col w-full">
-            <div className="w-full h-[100px] bg-gray-100 relative flex">
+            <div className="w-full h-[100px] bg-gray-200 relative flex">
                 <div className="relative ml-2 py-4">
                     <span className="z-[100] absolute order-2 left-[0.6rem] top-[1.2rem] text-[12px]">1</span>
                     <Location w={26} h={26} fill="#464747" />
