@@ -1,0 +1,18 @@
+// import { createContext, useContext, useState } from 'react';
+
+// const StateContext = createContext();
+
+// export const StateProvider = ({ children }) => {
+//   const [selectedLetter, setSelectedLetter] = useState('');
+//   const [selectedCity, setSelectedCity] = useState('');
+//   const [selectedPackageNumber, setSelectedPackageNumber] = useState('');
+//   const [selectedPackageQuantity, setSelectedPackageQuantity] = useState('');
+
+//   return (
+//     <StateContext.Provider value={{ selectedLetter, setSelectedLetter, selectedCity, setSelectedCity, selectedPackageNumber, setSelectedPackageNumber, selectedPackageQuantity, setSelectedPackageQuantity }}>
+//       {children}
+//     </StateContext.Provider>
+//   );
+// };
+
+// export const useStateContext = () => useContext(StateContext);
