@@ -5,38 +5,49 @@ import packageNumber from '../constants/PackageNumber';
 import PackageQuantity from '../constants/PackageQuantity';
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import useProvider from '../provider/Provider';
 
 function Page() {
-  const [selectedLetter, setSelectedLetter] = useState('');
-  const [selectedCity, setSelectedCity] = useState('');
-  const [selectedPackageNumber, setSelectedPackageNumber] = useState('');
-  const [selectedPackageQuantity, setSelectedPackageQuantity] = useState('');
+  const [formData, setFormData] = useState({
+    letter: '',
+    city: '',
+    packageNumber: '',
+    packageQuantity: '',
+  });
   const [concatenatedValues, setConcatenatedValues] = useState('');
+  const { setData } = useProvider();
   const router = useRouter();
 
+  const handleChange = (e: any) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
   useEffect(() => {
-    setConcatenatedValues(selectedLetter + ' ' + selectedCity + ' ' + selectedPackageNumber + ' ');
-  }, [selectedLetter, selectedCity, selectedPackageNumber]);
+    const { letter, city, packageNumber } = formData;
+    setConcatenatedValues(letter + ' ' + city.split(' ')[0] + ' ' + packageNumber);
+  }, [formData]);
   
   const handleSubmit = () => {
+    setData(formData);
     router.push('/current');
   };
 
   return (
-    <div className="flex justify-center my-10">
-      <form className="flex flex-col items-center justify-evenly p-12 w-[80vw] gap-14 bg-slate-600 rounded-lg">
+    <div className="bg-[var(--secondary)] flex w-screen h-screen justify-center items-center px-10">
+      <form className="flex flex-col gap-6 w-full text-[16px]">
         <select
           name="letter"
           id="letter"
-          className="bg-black"
-          value={selectedLetter}
-          onChange={(e) => setSelectedLetter(e.target.value)}
+          className="bg-[var(--input-color)] h-10 rounded-md px-2 "
+          value={formData.letter}
+          onChange={(e) => handleChange(e) }
         >
-          <option value="" disabled hidden>
+          <option className='text-[12px]' value="" disabled hidden>
             Select Letter
           </option>
           {letter.map((item, index) => (
-            <option value={item} key={index}>
+            <option className='text-[12px]' value={item} key={index}>
               {item}
             </option>
           ))}
@@ -45,15 +56,15 @@ function Page() {
         <select
           name="city"
           id="city"
-          className="bg-black"
-          value={selectedCity}
-          onChange={(e) => setSelectedCity(e.target.value)}
+          className="bg-[var(--input-color)] h-10 rounded-md px-2"
+          value={formData.city}
+          onChange={ (e) => handleChange(e) }
         >
-          <option value="" disabled hidden>
+          <option className='text-[12px]' value="" disabled hidden>
             Select City
           </option>
           {city.map((item) => (
-            <option value={item.name} key={item.id}>
+            <option className='text-[12px]' value={item.name + ' ' + item.id} key={item.id}>
               {item.name}
             </option>
           ))}
@@ -62,15 +73,15 @@ function Page() {
         <select
           name="packageNumber"
           id="packageNumber"
-          className="bg-black"
-          value={selectedPackageNumber}
-          onChange={(e) => setSelectedPackageNumber(e.target.value)}
+          className="bg-[var(--input-color)] h-10 rounded-md px-2"
+          value={formData.packageNumber}
+          onChange={ (e) => handleChange(e) }
         >
-          <option value="" disabled hidden>
+          <option className='text-[12px]' value="" disabled hidden>
             Select Package Number
           </option>
           {packageNumber.map((item, index) => (
-            <option value={item} key={index}>
+            <option className='text-[12px]' value={item} key={index}>
               {item}
             </option>
           ))}
@@ -79,29 +90,27 @@ function Page() {
         <select
           name="packageQuantity"
           id="packageQuantity"
-          className="bg-black"
-          value={selectedPackageQuantity}
-          onChange={(e) => setSelectedPackageQuantity(e.target.value)}
+          className="bg-[var(--input-color)] h-10 rounded-md px-2"
+          value={formData.packageQuantity}
+          onChange={ (e) => handleChange(e) }
         >
-          <option value="" disabled hidden>
+          <option className='text-[12px]' value="" disabled hidden>
             Select Package Quantity
           </option>
           {PackageQuantity.map((item, index) => (
-            <option value={item} key={index}>
+            <option className='text-[12px]' value={item} key={index}>
               {item}
             </option>
           ))}
         </select>
 
-        <button type="button" className="text-white bg-green-500 p-2 rounded-lg" onClick={() => handleSubmit()}>
+        <div className='flex border-2 border-dashed border-gray-500 h-10 rounded-md px-2 justify-center items-center'>
+          <p className='uppercase'>{concatenatedValues}</p>
+        </div>
+
+        <button type="button" className="text-[var(--secondary)] bg-[var(--primary)] font-bold p-2 rounded-lg" onClick={() => handleSubmit()}>
           Submit
         </button>
-        <input
-          type="text"
-          className="bg-black border border-white rounded-md"
-          readOnly
-          value={concatenatedValues}
-        />
       </form>
     </div>
   );

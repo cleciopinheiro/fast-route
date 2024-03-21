@@ -8,7 +8,7 @@ interface MenuProps {
 
 function Menu({ text }: MenuProps) {
   return (
-    <nav className="bg-black h-[10vh] p-4 flex justify-between items-center">
+    <nav className="bg-[var(--input-color)] h-[10vh] p-4 flex justify-between items-center">
       <GiHamburgerMenu className="text-white text-3xl" />
       <h1 className="text-white text-xl">{text}</h1>
       <div className="flex gap-6">
