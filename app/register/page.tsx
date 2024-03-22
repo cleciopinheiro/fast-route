@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { UploadButton } from "../utils/uploadthings";
+import Loading from '../components/Loading';
 
 interface Data {
   name: string;
@@ -17,10 +18,20 @@ function Page() {
     password: '',
     image: ''
   });
+
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = () => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  };
   
   return (
     <main className='bg-[var(--secondary)] w-screen h-screen flex items-center justify-center p-12'>
       <form className='flex flex-col gap-4 w-full'>
+        <h1 className='text-4xl font-semibold text-center mb-6'>Register</h1>
         <div className='flex flex-col gap-10 mb-6'>
         <label className='flex flex-col'>
             <input 
@@ -58,10 +69,11 @@ function Page() {
           </div>
         </div>
         <button 
-          className='w-full h-10 bg-[var(--primary)] rounded-md font-semibold' 
+          className='w-full h-12 bg-[var(--primary)] rounded-md font-semibold flex justify-center items-center' 
           type="button"
+          onClick={ handleSubmit}
         >
-          Register
+          {loading ? <Loading /> : 'Register'}
         </button>
         <p className='text-center'>Already have an account? <a className='text-[var(--primary)] no-underline' href="/">Log in now.</a></p>
       </form>
