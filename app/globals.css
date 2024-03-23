@@ -28,6 +28,14 @@ body {
   @apply border-b-2 border-transparent;
 }
 
+.activefooter {
+  @apply text-[var(--primary)] font-semibold;
+}
+
+.inactivefooter {
+  @apply text-gray-500;
+}
+
 /* HTML: <div class="loader"></div> */
 .loader {
   width: 28px;

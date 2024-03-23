@@ -89,7 +89,7 @@ function ListSection({ id }: ListSectionProps) {
                 arrayAddress(database.city).map((item, index) => (
                     <div key={index} className="z-[-70] w-full h-[100px] bg-white relative flex text-sm">
                         <div className="relative ml-2 py-4">
-                            <span className="z-[100] absolute order-2 left-[0.6rem] top-[1.2rem] text-[12px]">{item.id}</span>
+                            <span className={ item.id > 9 ? "z-[100] absolute order-2 left-[0.4rem] top-[1.15rem] text-[12px]" : "z-[100] absolute order-2 left-[0.6rem] top-[1.15rem] text-[12px]"}>{item.id}</span>
                             <Location w={26} h={26} fill={ index === 0 ? "#07AB51" : "#464747" } />
                             <div className="absolute z-[-50] left-3 top-0 border-l-2 border-[#9ca3af] h-full"></div>
                         </div>
