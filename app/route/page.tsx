@@ -3,6 +3,7 @@ import city from '../constants/City';
 import letter from '../constants/Letter';
 import packageNumber from '../constants/PackageNumber';
 import PackageQuantity from '../constants/PackageQuantity';
+import Loading from '../components/Loading';
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import useProvider from '../provider/Provider';
@@ -15,6 +16,7 @@ function Page() {
     packageQuantity: '',
   });
   const [concatenatedValues, setConcatenatedValues] = useState('');
+  const [loading, setLoading] = useState(false);
   const { setData } = useProvider();
   const router = useRouter();
 
@@ -29,8 +31,12 @@ function Page() {
   }, [formData]);
   
   const handleSubmit = () => {
-    setData(formData);
-    router.push('/current');
+    setLoading(true);
+    setTimeout(() => {
+      setData(formData);
+      setLoading(false);
+      router.push('/current');
+    }, 3000);
   };
 
   return (
@@ -109,8 +115,8 @@ function Page() {
           <p className='uppercase'>{concatenatedValues}</p>
         </div>
 
-        <button type="button" className="bg-[var(--primary)] h-12 font-bold p-2 rounded-lg" onClick={() => handleSubmit()}>
-          Submit
+        <button type="button" className="bg-[var(--primary)] h-12 font-bold p-2 rounded-lg flex justify-center items-center" onClick={() => handleSubmit()}>
+          {loading ? <Loading /> : 'Submit'}
         </button>
       </form>
     </div>
