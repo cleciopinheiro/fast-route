@@ -1,13 +1,19 @@
-import Content from "../components/Content";
-import List from "../components/Content";
+'use client'
+import { useState } from "react";
 import Menu from "../components/Menu";
-import SearchBar from "../components/SearchBar";
 import Tabs from "../components/Tabs";
+import OpenMenu from "../components/OpenMenu";
 
 function page() {
+    const [openMenu, setOpenMenu] = useState(false);
+
+    const handleMenu = () => {
+        setOpenMenu(!openMenu);
+    };
     return (
         <main className="flex flex-col">
-            <Menu text='ITINERARY' />
+            <OpenMenu onClick={ handleMenu } open={openMenu} />
+            <Menu onClick={ handleMenu } open={openMenu} text='ITINERARY' />
             <Tabs />
         </main>
     );

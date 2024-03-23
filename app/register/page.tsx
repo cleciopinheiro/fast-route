@@ -31,7 +31,8 @@ function Page() {
   return (
     <main className='bg-[var(--secondary)] w-screen h-screen flex items-center justify-center p-12'>
       <form className='flex flex-col gap-4 w-full'>
-        <h1 className='text-4xl font-semibold text-center mb-6'>Register</h1>
+        <h1 className='text-4xl font-semibold text-center mb-6'>Register now
+</h1>
         <div className='flex flex-col gap-10 mb-6'>
         <label className='flex flex-col'>
             <input 
@@ -73,9 +74,9 @@ function Page() {
           type="button"
           onClick={ handleSubmit}
         >
-          {loading ? <Loading /> : 'Register'}
+          {loading ? <Loading /> : 'Sign Up'}
         </button>
-        <p className='text-center'>Already have an account? <a className='text-[var(--primary)] no-underline' href="/">Log in now.</a></p>
+        <p className='text-center'>Already have an account? <a className='text-[var(--primary)] no-underline' href="/">Sign in.</a></p>
       </form>
     </main>
   );

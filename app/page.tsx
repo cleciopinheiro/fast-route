@@ -25,6 +25,7 @@ export default function Home() {
     <main className='bg-[var(--secondary)] w-screen h-screen flex items-center justify-center p-12'>
       <form className='flex flex-col gap-4 w-full'>
         <Image src='/logomarca.png' width={200} height={100} alt='logo' className='self-center mb-6' />
+        <h1 className='text-2xl font-semibold text-center mb-6'>Sign In</h1>
         <div className='flex flex-col gap-10 mb-6'>
           <label className='flex flex-col'>
             <input 
@@ -52,9 +53,9 @@ export default function Home() {
           type="button"
           onClick={ handleSubmit }
         >
-          {loading ? <Loading/> : 'Login'}
+          {loading ? <Loading/> : 'Sign in'}
         </button>
-        <p className='text-center'>{`Don't have an account?`} <a className='text-[var(--primary)] no-underline' href="/register">Register.</a></p>
+        <p className='text-center'>{`Don't have an account?`} <a className='text-[var(--primary)] no-underline' href="/register">Sign Up.</a></p>
       </form>
     </main>
   );

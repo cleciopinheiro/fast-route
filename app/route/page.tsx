@@ -36,10 +36,11 @@ function Page() {
   return (
     <div className="bg-[var(--secondary)] flex w-screen h-screen justify-center items-center px-10">
       <form className="flex flex-col gap-6 w-full text-[16px]">
+      <h1 className='text-4xl font-semibold text-center mb-6'>Create route</h1>
         <select
           name="letter"
           id="letter"
-          className="bg-[var(--input-color)] h-10 rounded-md px-2 "
+          className="bg-[var(--thirth)] outline-none h-10 rounded-md px-2 "
           value={formData.letter}
           onChange={(e) => handleChange(e) }
         >
@@ -56,7 +57,7 @@ function Page() {
         <select
           name="city"
           id="city"
-          className="bg-[var(--input-color)] h-10 rounded-md px-2"
+          className="bg-[var(--thirth)] outline-none h-10 rounded-md px-2"
           value={formData.city}
           onChange={ (e) => handleChange(e) }
         >
@@ -73,7 +74,7 @@ function Page() {
         <select
           name="packageNumber"
           id="packageNumber"
-          className="bg-[var(--input-color)] h-10 rounded-md px-2"
+          className="bg-[var(--thirth)] outline-none h-10 rounded-md px-2"
           value={formData.packageNumber}
           onChange={ (e) => handleChange(e) }
         >
@@ -90,7 +91,7 @@ function Page() {
         <select
           name="packageQuantity"
           id="packageQuantity"
-          className="bg-[var(--input-color)] h-10 rounded-md px-2"
+          className="bg-[var(--thirth)] outline-none h-10 rounded-md px-2"
           value={formData.packageQuantity}
           onChange={ (e) => handleChange(e) }
         >
@@ -108,7 +109,7 @@ function Page() {
           <p className='uppercase'>{concatenatedValues}</p>
         </div>
 
-        <button type="button" className="text-[var(--secondary)] bg-[var(--primary)] font-bold p-2 rounded-lg" onClick={() => handleSubmit()}>
+        <button type="button" className="bg-[var(--primary)] h-12 font-bold p-2 rounded-lg" onClick={() => handleSubmit()}>
           Submit
         </button>
       </form>
