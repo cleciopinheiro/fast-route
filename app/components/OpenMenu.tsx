@@ -8,9 +8,10 @@ import Help from "../icons/Help";
 interface OpenMenuProps {
     open?: boolean;
     onClick?: () => void;
+    onBadge?: () => void;
 }
 
-function OpenMenu({ open, onClick }: OpenMenuProps) {
+function OpenMenu({ open, onClick, onBadge }: OpenMenuProps) {
     return (
         <div onClick={ onClick } className={
             open
@@ -24,7 +25,7 @@ function OpenMenu({ open, onClick }: OpenMenuProps) {
             }>
                 <div className="flex relative">
                     <IoClose onClick={ onClick } size={28} className="text-white m-4 absolute" />
-                    <div className="flex flex-col gap-2 w-full items-center justify-center py-4">
+                    <div className="flex flex-col gap-2 w-full items-center justify-center py-4" onClick={ onBadge }>
                         <Image src="/foto.png" alt="logo" width={60} height={60} className="rounded-full border-2 border-[var(--primary)]" />
                         <h2>Full Name</h2>
                     </div>

@@ -33,7 +33,7 @@ const Tabs = () => {
       </div>
       <SearchBar />
       <div>
-        { openTab === 1 && <ListSection id="list" /> }
+        {/* { openTab === 1 && <ListSection id="list" /> } */}
         { openTab === 2 && <MapSection id="map" /> }
         { openTab === 3 && <SummarySection id="summary" /> }
       </div>

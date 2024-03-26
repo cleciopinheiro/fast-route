@@ -1,7 +1,8 @@
-'use client'
+'use client';
 import { useState } from "react";
-import Menu from "../components/Menu";
-import Tabs from "../components/Tabs";
+import FooterMenu from "../components/FooterMenu";
+import Updates from "../components/Notifications";
+import TopMenu from "../components/TopMenu";
 import OpenMenu from "../components/OpenMenu";
 import Badge from "../components/Badge";
 
@@ -18,13 +19,14 @@ function page() {
     }
 
     return (
-        <main className="flex flex-col">
+        <main className="w-screen bg-gray-300">
             {
                 openBadge && <Badge onClick={ handleBadge } open={openBadge} />
             }
-            <OpenMenu onBadge={ handleBadge } onClick={ handleMenu } open={openMenu} />
-            <Menu onClick={ handleMenu } open={openMenu} text='ITINERARY' />
-            <Tabs />
+            <OpenMenu onClick={ handleMenu } open={openMenu} />
+            <TopMenu onClick={ handleMenu } />
+            <Updates />
+            <FooterMenu />
         </main>
     );
 }

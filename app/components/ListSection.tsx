@@ -73,7 +73,7 @@ function ListSection({ id }: ListSectionProps) {
         <div id={id} className="flex flex-col w-full">
             <div className="w-full h-[100px] bg-gray-200 relative flex text-sm">
                 <div className="relative ml-2 py-4">
-                    <span className="z-[100] absolute order-2 left-[0.6rem] top-[1.2rem] text-[12px]">1</span>
+                    <span className="z-30 absolute left-[0.6rem] top-[1.2rem] text-[12px]">1</span>
                     <FaCheckCircle size={10} className="absolute left-[1.2rem] text-[#07AB51]" />
                     <Location w={26} h={26} fill="#9ca3af" />
                     <div className="absolute left-3 top-0 border-l-2 border-[#9ca3af] h-full"></div>
