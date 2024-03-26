@@ -3,6 +3,7 @@ import { RiArrowDropRightLine } from "react-icons/ri";
 import { Progress } from 'antd';
 import useProvider from "../provider/Provider";
 import { useEffect, useState } from "react";
+import { getStorage } from "../utils/LocalStorage";
 
 interface SummarySectionProps {
     id: string;
@@ -25,10 +26,9 @@ function SummarySection({ id }: SummarySectionProps) {
     });
 
     useEffect(() => {
-        if (data) {
-            setDatabase(data as Data);
-        }
-    }, [data]);
+        const data = getStorage('routeData');
+        setDatabase(data);
+    }, []);
 
     return (
         <div id={id} className="w-screen bg-gray-400 flex flex-col text-[#141618] gap-2">

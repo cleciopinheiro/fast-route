@@ -7,6 +7,7 @@ import Loading from '../components/Loading';
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import useProvider from '../provider/Provider';
+import { setStorage } from '../utils/LocalStorage';
 
 function Page() {
   const [formData, setFormData] = useState({
@@ -33,6 +34,7 @@ function Page() {
   const handleSubmit = () => {
     setLoading(true);
     setTimeout(() => {
+      setStorage('routeData', formData);
       setData(formData);
       setLoading(false);
       router.push('/current');

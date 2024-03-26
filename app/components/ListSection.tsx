@@ -5,6 +5,7 @@ import { FaCheckCircle } from "react-icons/fa";
 import useProvider from "../provider/Provider";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { getStorage } from "../utils/LocalStorage";
 
 interface ListSectionProps {
     id: string;
@@ -19,7 +20,6 @@ interface Data {
 
 function ListSection({ id }: ListSectionProps) {
     const hourAndMinutes = new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', hour12: false });
-    const { data } = useProvider();
     const router = useRouter();
     const [database, setDatabase] = useState<Data>({
         letter: '',
@@ -33,17 +33,28 @@ function ListSection({ id }: ListSectionProps) {
 
         switch (true) {
             case hour >= 0 && hour < 4:
-                return '08:00';
+                return '08:00 Today';
             case hour > 4 && hour < 7:
-                return '11:00';
+                return '11:00 Today';
             case hour > 7 && hour < 11:
-                return '15:00';
+                return '15:00 Today';
             case hour > 11 && hour < 13:
-                return '18:00';
+                return '18:00 Today';
+            case hour > 13 && hour < 19:    
+                return '22:00 Today';
             default:
-                return '22:00';
+                return '00:00 Tomorrow';
         }
     };
+
+    useEffect(() => {
+        const data = getStorage('routeData');
+        if (!data) {
+            router.push('/route');
+        }
+        setDatabase(data);
+    }, []);
+    
 
     const vencimento = calculateScheduled();
 
@@ -62,12 +73,6 @@ function ListSection({ id }: ListSectionProps) {
         }
         return array;
     };
-
-    useEffect(() => {
-        if (data) {
-            setDatabase(data as Data);
-        }
-    }, [data]);
     
     return (
         <div id={id} className="flex flex-col w-full">
@@ -96,7 +101,7 @@ function ListSection({ id }: ListSectionProps) {
                         <div className="relative text-[#464747] w-full font-semibold ml-4 flex flex-col justify-center">
                             <div className="flex items-center gap-1">
                                 <AiFillClockCircle className="text-[#42aaff]" />
-                                <span className="ml-1"># {database.letter}.{database.packageNumber}.OV • Scheduled 0:01 - {vencimento} Today</span>
+                                <span className="ml-1"># {database.letter}.{database.packageNumber}.OV • Scheduled 0:01 - {vencimento}</span>
                             </div>
                             <p>{item.address}</p>
                             <p className="uppercase">{database.city.split(' ')[0]}</p>

@@ -20,10 +20,8 @@ function page() {
 
     return (
         <main className="w-screen bg-gray-300">
-            {
-                openBadge && <Badge onClick={ handleBadge } open={openBadge} />
-            }
-            <OpenMenu onClick={ handleMenu } open={openMenu} />
+            <Badge onBadge={ handleBadge } open={openBadge} />
+            <OpenMenu onBadge={ handleBadge } onClick={ handleMenu } open={openMenu} />
             <TopMenu onClick={ handleMenu } />
             <Updates />
             <FooterMenu />

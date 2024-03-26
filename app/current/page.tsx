@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import { useState } from "react";
 import Menu from "../components/Menu";
 import Tabs from "../components/Tabs";
@@ -19,9 +19,7 @@ function page() {
 
     return (
         <main className="flex flex-col">
-            {
-                openBadge && <Badge onClick={ handleBadge } open={openBadge} />
-            }
+            <Badge onBadge={ handleBadge } open={openBadge} />
             <OpenMenu onBadge={ handleBadge } onClick={ handleMenu } open={openMenu} />
             <Menu onClick={ handleMenu } open={openMenu} text='ITINERARY' />
             <Tabs />

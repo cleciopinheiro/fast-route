@@ -21,7 +21,7 @@ function OpenMenu({ open, onClick, onBadge }: OpenMenuProps) {
             <div className={
                 open
                 ? 'fixed left-0 top-0 w-[85%] h-screen bg-[var(--input-color)] ease-in duration-300 flex flex-col'
-                : 'fixed left-[-100%] top-0 w-[85%] h-screen bg-[var(--input-color)] ease-in duration-500 flex flex-col'
+                : 'fixed left-[-100%] top-0 w-[85%] h-screen bg-[var(--input-color)] ease-in duration-300 flex flex-col'
             }>
                 <div className="flex relative">
                     <IoClose onClick={ onClick } size={28} className="text-white m-4 absolute" />
