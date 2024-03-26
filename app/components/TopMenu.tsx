@@ -7,7 +7,7 @@ interface TopMenuProps {
 
 function TopMenu({ onClick }: TopMenuProps) {
     return (
-        <nav className="fixed bg-[var(--input-color)] h-[8vh] w-full p-4 flex justify-between items-center">
+        <nav className="fixed bg-[var(--input-color)] h-[8vh] w-full p-4 flex justify-between items-center top-0">
         <GiHamburgerMenu onClick={ onClick } size={24} className="text-white" />
         <div className="flex gap-6">
           <RiChat4Line size={24} className="text-white" />

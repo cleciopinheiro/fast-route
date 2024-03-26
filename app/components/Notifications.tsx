@@ -3,7 +3,7 @@ import notifications from "../constants/Notifications";
 
 function Notifications() {
     return (
-        <div className="w-full flex flex-col gap-2 mb-24">
+        <div className="w-full flex flex-col gap-2 mb-24 mt-14">
             {
                 notifications.map((notification) => (
                     <div key={notification.id} className="flex flex-col gap-2 bg-white text-[var(--secondary)] p-4">

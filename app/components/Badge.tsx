@@ -33,7 +33,7 @@ function Badge({ onBadge, open }: BadgeProps) {
             <div className={
                 open
                 ? 'fixed bottom-0 left-0 w-full h-[93vh] bg-white ease-in duration-300 flex flex-col rounded-t-xl bg-cover bg-no-repeat bg-center'
-                : 'fixed bottom-[-100%] left-0 w-full h-[93vh] bg-white ease-in duration-300 flex flex-col bg-cover bg-no-repeat bg-center'
+                : 'fixed bottom-[-150%] left-0 w-full h-[93vh] bg-white ease-in duration-300 flex flex-col bg-cover bg-no-repeat bg-center'
             } style={{backgroundImage: `url('/fundo.webp')`}}>
                 <div className="relative flex w-full bg-[var(--fourth)] rounded-t-xl justify-center items-center px-4" onClick={ onBadge }>
                     <Amazon w={80} h={50} fill="#ffffff" />

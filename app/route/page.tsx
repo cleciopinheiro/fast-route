@@ -38,7 +38,7 @@ function Page() {
       setData(formData);
       setLoading(false);
       router.push('/current');
-    }, 3000);
+    }, 200);
   };
 
   return (
